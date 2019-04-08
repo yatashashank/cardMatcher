@@ -6,11 +6,13 @@ html{
     min-height: 100vh;
 }
 
+/*This Apply properties for body tag */
 body{
     margin: 0;
     background: radial-gradient(#e66465, #9198e5)
 }
 
+/* Header Title properties*/
 .page-title{
     font-family: Arial, Helvetica, sans-serif;
     font-family:normal;
@@ -18,6 +20,7 @@ body{
     font-size: 4em;
 }
 
+/* Main div for game container */
 .main-container{
     display: grid;
     grid-template-columns: repeat(4,auto);
@@ -38,8 +41,94 @@ body{
     font-size: 2em;
 }
 
+
 .card{
+    position: relative;
     background-color: black;
     height: 175px;
     width: 125px;
+}
+
+.card.visible .card-front{
+        transform: rotateY(0deg)
+}
+
+.card.visible .card-back{
+    transform: rotateY(-180deg)
+}
+
+.card-front{
+    transform: rotateX(180deg);
+    background-color: antiquewhite;
+    border-color: grey;
+
+}
+
+.card-value {
+    transform: scale(0.9)
+}
+.card-front:hover .card-value {
+     transform: scale(1);
+}
+
+.card-back{
+    background-color: black;
+    border-color: orange;
+}
+.card-face{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.cob-web{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transition: transform 100ms ease-in-out;
+}
+
+.card-face:hover .cob-web {
+    width: 52px;
+    height: 52px;
+}
+.cob-web-top-left{
+    transform: rotate(270deg);
+    top: 0;
+    left: 0;
+}
+
+.cob-web-top-right{
+    top: 0;
+    right: 0;
+}
+
+.cob-web-bottom-left{
+    transform: rotate(180deg);
+    bottom: 0;
+    left: 0;
+}
+
+.cob-web-bottom-right{
+    transform: rotate(90deg);
+    bottom: 0;
+    right: 0;
+}
+
+.spider{
+    align-self: flex-start;
+    transform: translateY(-10px);
+    transition: transform 100ms ease-in-out;
+}
+
+.card-back:hover .spider{
+    transform: translateY(0)
 }
